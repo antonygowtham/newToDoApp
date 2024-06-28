@@ -27,9 +27,9 @@ function ListItem({task,getData}) {
             <div className="card-body">
                 <h4 className="card-title">{task.title}</h4>
                 <p className="card-text">{task.category}</p>
-                <div className="mb-3">
+                
                 <ProgressBar progress={task.progress}/>
-                </div> 
+                
                 <button className="btn btn-sm btn-outline-info mr-2" onClick={()=>setShowModal(true)}><i className="fas fa-pencil-alt"></i></button>
                 <button className="btn btn-sm btn-outline-danger" onClick={deleteItem}><i className="fas fa-trash-alt"></i></button>
             </div>

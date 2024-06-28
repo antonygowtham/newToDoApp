@@ -40,53 +40,60 @@ function Auth() {
   }
   return (
     <>
-      <div className="jumbotron text-center mt-5">
+      <div className="jumbotron text-center d-flex align-items-center justify-content-center" style={{ height: '100vh', marginTop: '0' }}>
         <div className="container">
           <i className="fas fa-key fa-2x"></i>
           <h1 className="display-6">To Do</h1>
-          <p className="lead">be productive</p>
-          <hr/>
-          <form>
-              <h2>{isLogIn ? "Please login " : "Please sign up"}</h2>
+          <p className="lead">Be productive</p>
+          <hr />
+          <form onSubmit={(e) => handleSubmit(e, isLogIn ? 'login' : 'signup')}>
+            <h2>{isLogIn ? 'Please login' : 'Please sign up'}</h2>
+            <input
+              className="form-control mb-3"
+              type="email"
+              placeholder="Email"
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <input
+              className="form-control mb-3"
+              type="password"
+              placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            {!isLogIn && (
               <input
-                  className="form-control mb-3"
-                  type="email"
-                  placeholder="email"
-                  onChange={(e)=>setEmail(e.target.value)}
-                  required
+                className="form-control mb-3"
+                type="password"
+                placeholder="Confirm Password"
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                required
               />
-              <input 
-                  className="form-control mb-3"
-                  type="password" 
-                  placeholder="password"
-                  onChange={(e)=>setPassword(e.target.value)}
-                  required
-              />
-              {!isLogIn && <input 
-                  className="form-control mb-3"
-                  type="password" 
-                  placeholder="confirm password"
-                  onChange={(e)=>setConfirmPassword(e.target.value)}
-              />}
-              <input className="btn btn-dark mb-3" type="submit" onClick={(e)=>handleSubmit(e,isLogIn ? 'login' : 'signup')}/>
-              {error && <p>{error}</p>}
-            </form>
-            <div className="row">
-                    <button 
-                        className="col-6"
-                        onClick={()=>viewLogin(false)}
-                        style={{backgroundColor : !isLogIn ? 'rgb(255,255,255)' : 'rgb(188,188,188)'}}
-                        >sign up</button>
-                    <button 
-                        className="col-6"
-                        onClick={()=>viewLogin(true)}
-                        style={{backgroundColor : isLogIn ? 'rgb(255,255,255)' : 'rgb(188,188,188)'}}
-                    >Log in</button>
-            </div>
+            )}
+            <input className="btn btn-dark mb-3" type="submit" value={isLogIn ? 'Log In' : 'Sign Up'} />
+            {error && <p className="text-danger">{error}</p>}
+          </form>
+          <div className="row">
+            <button
+              className="col-6 btn"
+              onClick={() => viewLogin(false)}
+              style={{ backgroundColor: !isLogIn ? 'rgb(255,255,255)' : 'rgb(188,188,188)' }}
+            >
+              Sign Up
+            </button>
+            <button
+              className="col-6 btn"
+              onClick={() => viewLogin(true)}
+              style={{ backgroundColor: isLogIn ? 'rgb(255,255,255)' : 'rgb(188,188,188)' }}
+            >
+              Log In
+            </button>
+          </div>
         </div>
       </div>
     </>
-  )
+  );
 }
 
 export default Auth
