@@ -24,7 +24,7 @@ function Auth() {
           return
       }
       if(!isLogIn && password !== confirmPassword){
-          setError('make sure password match')
+          setError('password mismatch : make sure password match')
           return
       }
       const response=await axios.post(`${serverUrl}/${endpoint}`,{email:email,password:password})
@@ -71,8 +71,9 @@ function Auth() {
                 required
               />
             )}
-            <input className="btn btn-dark mb-3" type="submit" value={isLogIn ? 'Log In' : 'Sign Up'} />
             {error && <p className="text-danger">{error}</p>}
+            <input className="btn btn-dark mb-3" type="submit" value={isLogIn ? 'Log In' : 'Sign Up'} />
+            
           </form>
           <div className="row">
             <button
