@@ -19,7 +19,7 @@ function ListHeader({getData}) {
         <div className="col-md-6 text-center"><h1>My ToDo</h1></div>
         <div className="col-md-6 text-center">
             <p className="col"><strong>{cookies.Email}</strong></p>
-            <button className="btn btn-light mx-3" onClick={()=>setShowModal(true)}>ADD NEW</button>
+            <button className="btn btn-light mx-3" onClick={()=>setShowModal(true)}>ADD NEW TASK</button>
             <button className="btn btn-danger" onClick={signOut}>SIGN OUT</button>  
         </div>
         {showModal && <Modal mode={'create'} setShowModal={setShowModal} getData={getData}/>}

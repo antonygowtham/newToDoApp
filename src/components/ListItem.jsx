@@ -2,6 +2,9 @@ import React, {useState } from "react";
 import axios from "axios";
 import Modal from "./Modal";
 import ProgressBar from "./ProgressBar";
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
+
 
 function ListItem({task,getData}) {
     if (!task) {
@@ -30,8 +33,9 @@ function ListItem({task,getData}) {
                 
                 <ProgressBar progress={task.progress}/>
                 
-                <button className="btn btn-sm btn-outline-info mr-2" onClick={()=>setShowModal(true)}><i className="fas fa-pencil-alt"></i></button>
-                <button className="btn btn-sm btn-outline-danger" onClick={deleteItem}><i className="fas fa-trash-alt"></i></button>
+                <button className="btn btn-sm btn-outline-info mr-2" onClick={()=>setShowModal(true)}><EditIcon/></button>
+                <button className="btn btn-sm btn-outline-danger" onClick={deleteItem}><DeleteIcon />
+                </button>
             </div>
             
         </div>
