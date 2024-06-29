@@ -5,7 +5,7 @@ function Filter({type,getFilteredTasks}){
         return
     }
     return (
-        <button type="button" className="btn btn-secondary mx-1 rounded-circle" onClick={()=>getFilteredTasks(type.category)}>{type.category}</button>
+        <button type="button" className="btn btn-secondary" onClick={()=>getFilteredTasks(type.category)}>{type.category}</button>
     )
 }
 

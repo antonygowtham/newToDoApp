@@ -67,9 +67,9 @@ function App() {
             </div>
             <hr/>
             <div className="row btn-group">
-              <button type="button" className="btn btn-secondary mx-1 rounded-circle" onClick={getData}>All</button>
+              <button type="button" className="btn btn-secondary" onClick={getData}>All</button>
               {types?.map((type,index) => <Filter key={index} type={type} getFilteredTasks={getFilteredTasks}/>)}
-              <button type="button" className="btn btn-secondary mx-1 rounded-circle" onClick={getFinishedTasks}>finished </button>
+              <button type="button" className="btn btn-secondary" onClick={getFinishedTasks}>finished </button>
             </div>
             
             <div className="row shadow p-3">
