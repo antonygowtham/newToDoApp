@@ -40,7 +40,7 @@ function Auth() {
   }
   return (
     <>
-      <div className="jumbotron text-center d-flex align-items-center justify-content-center" style={{ height: '100vh', marginTop: '0' }}>
+      <div className="jumbotron text-center " >
         <div className="container">
           <i className="fas fa-key fa-2x"></i>
           <h1 className="display-6">To Do</h1>
