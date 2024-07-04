@@ -11,6 +11,7 @@ function Auth() {
   const [password,setPassword]=useState(null)
   const [confirmPassword,setConfirmPassword]=useState(null)
   const [error,setError]=useState(null)
+  const [showNote,setShowNote]=useState(false)
 
   function viewLogin(state){
       setError(null)
@@ -27,6 +28,7 @@ function Auth() {
           setError('password mismatch : make sure password match')
           return
       }
+      setShowNote(true)
       const response=await axios.post(`${serverUrl}/${endpoint}`,{email:email,password:password})
       if(response.data.failed){
           setError(response.data.failed)
@@ -47,7 +49,8 @@ function Auth() {
           <p className="lead">Be productive</p>
           <hr />
           <form onSubmit={(e) => handleSubmit(e, isLogIn ? 'login' : 'signup')}>
-            <h2>{isLogIn ? 'Please login' : 'Please sign up'}</h2>
+            {!showNote && <h2>{isLogIn ? 'Please login' : 'Please sign up'}</h2>}
+            {showNote && <h2><div class="spinner-border"></div></h2>}
             <input
               className="form-control mb-3"
               type="email"

@@ -5,6 +5,7 @@ import {useCookies} from "react-cookie";
 function Modal({mode,setShowModal,getData,task}) {
     const serverUrl = import.meta.env.VITE_SERVERURL;
     const [cookies,setCookie,removeCookie]=useCookies(null);
+    const [showNote,setShowNote]=useState(false)
 
     const editMode = mode == 'edit' ? true : false;
 
@@ -17,8 +18,10 @@ function Modal({mode,setShowModal,getData,task}) {
     })
 
     async function postData(e){
-        e.preventDefault();
+        e.preventDefault()
+        setShowNote(true)
         try {
+            
             const response=await fetch(`${serverUrl}/todos`,{
                 method:'POST',
                 headers:{'content-type':'application/json'},
@@ -34,7 +37,8 @@ function Modal({mode,setShowModal,getData,task}) {
     }
 
     async function editData(e){
-        e.preventDefault();
+        e.preventDefault()
+        setShowNote(true)
         try {
             const response=await axios.patch(`${serverUrl}/todos/${task.id}`,data);
             if(response.status === 200){
@@ -58,8 +62,10 @@ function Modal({mode,setShowModal,getData,task}) {
             <div className="container bg-white mt-5 rounded ">
                 <div className="row">
                     <h3 className="col-10">Let's {mode} your task</h3>
+                    
                     <button className="col-2 btn-danger" onClick={()=>setShowModal(false)}>X</button>
                 </div>
+                {showNote && <h2 class="text-center "><div class="text-center spinner-border"></div></h2>}
                 <form className="p-3">
                     <div className="mb-3 mt-3">
                     <label className="form-label" for="title">Enter Task</label>

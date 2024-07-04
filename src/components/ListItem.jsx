@@ -10,10 +10,12 @@ function ListItem({task,getData}) {
     if (!task) {
         return null
     }
-    const serverUrl = import.meta.env.VITE_SERVERURL; 
-    const [showModal,setShowModal]=useState(false);
+    const serverUrl = import.meta.env.VITE_SERVERURL
+    const [showModal,setShowModal]=useState(false)
+    const [showNote,setShowNote]=useState(false)
 
     async function deleteItem(){
+        setShowNote(true)
         try {
             const response=await axios.delete(`${serverUrl}/todos/${task.id}`);
             if(response.status===200){
@@ -30,7 +32,7 @@ function ListItem({task,getData}) {
             <div className="card-body">
                 <h4 className="card-title">{task.title}</h4>
                 <p className="card-text">{task.category}</p>
-                
+                {showNote && <h2 class="text-center "><div class="text-center spinner-border"></div></h2>}
                 <ProgressBar progress={task.progress}/>
                 
                 <button className="btn btn-sm btn-outline-info mr-2" onClick={()=>setShowModal(true)}><EditIcon/></button>
