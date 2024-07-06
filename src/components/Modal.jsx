@@ -30,6 +30,7 @@ function Modal({mode,setShowModal,getData,task}) {
             if(response.status === 200){
                 getData();
                 setShowModal(false);
+                window.location.reload()
             }
         } catch (error) {
             console.log(error)
@@ -44,6 +45,7 @@ function Modal({mode,setShowModal,getData,task}) {
             if(response.status === 200){
                 getData();
                 setShowModal(false);
+                window.location.reload()
             }
         } catch (error) {
             console.error(error);

@@ -20,6 +20,7 @@ function ListItem({task,getData}) {
             const response=await axios.delete(`${serverUrl}/todos/${task.id}`);
             if(response.status===200){
                 getData();
+                window.location.reload()
             }
         } catch (error) {
         console.error(error);
