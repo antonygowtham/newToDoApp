@@ -48,7 +48,7 @@ function Auth() {
         <div className="container">
           <div className="p-3 bg-warning rounded">
             <p className="m-0">
-              Note: It may take some time (even 2-5 minutes) to process your request since the app is hosted on a free hosting service (render.com).
+              Note: It may take a while (even 2-5 minutes) to process your request since the app is hosted on a free hosting service (render.com).
             </p>
           </div>
           <i className="fas fa-key fa-2x"></i>
