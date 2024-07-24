@@ -46,10 +46,10 @@ function Auth() {
     <>
       <div className="jumbotron text-center position-relative">
         <div className="container">
-          <div className="p-3 bg-warning rounded">
-            <p className="m-0">
-              Note: It may take a while (even 2-5 minutes) to process your request since the app is hosted on a free hosting service (render.com).
-            </p>
+          <div className="p-3 bg-danger rounded">
+            <h1 className="m-0">
+              the app has been stopped temporarily due to service issue.
+            </h1>
           </div>
           <i className="fas fa-key fa-2x"></i>
           <h1 className="display-6">To Do</h1>
